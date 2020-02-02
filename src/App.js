@@ -17,12 +17,7 @@ function App () {
   console.log(data)
   return (
     <div className='App'>
-      <CardList name='Yihua'>
-        {data.length &&
-          data.map(monster => {
-            return <p key={monster.id}>{monster.name}</p>
-          })}
-      </CardList>
+      <CardList monsters={data} />
     </div>
   )
 }

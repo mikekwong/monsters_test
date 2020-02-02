@@ -1,8 +1,16 @@
 import React from 'react'
 import './CardList.css'
+import Card from '../Card/Card'
 
-const CardList = ({ children }) => {
-  return <div className='card-list'>{children}</div>
+const CardList = ({ monsters }) => {
+  return (
+    <div className='card-list'>
+      {monsters.length &&
+        monsters.map(monster => {
+          return <Card key={monster.id} monster={monster} />
+        })}
+    </div>
+  )
 }
 
 export default CardList
