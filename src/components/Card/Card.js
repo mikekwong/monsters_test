@@ -1,9 +1,15 @@
 import React from 'react'
+import './Card.css'
 
 const Card = ({ monster }) => {
   return (
-    <div>
-      <h1>{monster.name}</h1>
+    <div className='card-container'>
+      <img
+        alt='monster'
+        src={`https://robohash.org/${monster.id}?set=set2&size=180x180`}
+      />
+      <h2>{monster.name}</h2>
+      <p>{monster.email}</p>
     </div>
   )
 }

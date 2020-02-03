@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import CardList from './components/CardList/CardList'
+import Search from './Search/Search'
 import './App.css'
 
 function App () {
-  const [data, setData] = useState({ monsters: [] })
+  const [data, setData] = useState([])
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,10 +16,13 @@ function App () {
     fetchData()
   }, [])
 
-  console.log(data)
+  const filteredMonsters = data.filter(monster => {
+    return monster.name.toLowerCase().includes(query.toLowerCase())
+  })
   return (
     <div className='App'>
-      <CardList monsters={data} />
+      <Search placeholder='find monsters' setQuery={setQuery} />
+      <CardList monsters={filteredMonsters} />
     </div>
   )
 }
